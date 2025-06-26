@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sapienscoin"
+version = "0.0.1"
+authors = [
+  { name="Sapiens Coin Team", email="contact@sapienscoin.xyz" },
+]
+description = "Sapiens Coin - философско-экономическая матрица новой эры"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Предполагаем MIT, можно изменить
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/algoritmo911/SC"
+"Bug Tracker" = "https://github.com/algoritmo911/SC/issues"
