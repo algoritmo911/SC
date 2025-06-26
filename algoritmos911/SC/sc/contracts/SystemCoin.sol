@@ -1,0 +1,1 @@
+// SystemCoin Smart Contract
