@@ -24,3 +24,7 @@ async def upload_vr_scene(
     )
     # Временно просто возвращаем KU
     return {"status": "ok", "data": ku}
+
+@router.get("/")
+async def get_knowledge():
+    return {"message": "GET knowledge endpoint"}
