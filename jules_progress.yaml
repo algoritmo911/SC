@@ -1,0 +1,43 @@
+tasks:
+  - id: universal-900
+    task: Следить за собственным прогрессом — создавать и обновлять jules_progress.yaml в каждом репозитории.
+    status: выполнено
+    start_date: 2025-06-30
+    end_date: 2025-06-30
+    commits: [] # Will add commit hash after submission
+    comments: "Progress tracking file created and maintained throughout the tasks."
+  - id: sc-001
+    task: Распарсить загруженные идеи SC по направлениям: экономика, философия, защита, DAO, субъекты, архитектура.
+    status: выполнено
+    start_date: 2025-06-30
+    end_date: 2025-06-30 # Current date
+    commits: [] # Will add commit hash later
+    comments: "Parsed ideas from problem description into separate files in ideas/ directory as SC_ideas_log.md was not found."
+  - id: sc-002
+    task: Структурировать документацию (внутреннюю) SC как дерево: docs/dao.md, docs/tokenomics.md, docs/core.md
+    status: выполнено
+    start_date: 2025-06-30 # Current date
+    end_date: 2025-06-30 # Current date
+    commits: [] # Will add commit hash later
+    comments: "Created docs directory and populated dao.md, tokenomics.md, and core.md with initial content based on parsed ideas."
+  - id: sc-003
+    task: Сравнить текущую архитектуру SC с open-source DAO-проектами (например, Aragon, Colony).
+    status: выполнено
+    start_date: 2025-06-30 # Current date
+    end_date: 2025-06-30 # Current date
+    commits: [] # Will add commit hash later
+    comments: "Researched Aragon and Colony. Created docs/comparison.md with findings and comparisons to SC's conceptual architecture."
+  - id: sc-004
+    task: Построить json-схему потока: субъект -> вклад -> токенизация -> голосование -> NFT или SC-награда.
+    status: выполнено
+    start_date: 2025-06-30 # Current date
+    end_date: 2025-06-30 # Current date
+    commits: [] # Will add commit hash later
+    comments: "Created schemas/flow.json defining the contribution-to-reward flow. Includes stages for subject initiation, contribution, tokenization/assessment, voting, and reward distribution."
+  - id: sc-005
+    task: Автоматически категоризировать идеи в SC_ideas_log.md по тегам: #экономика #этика #архитектура #антиатака.
+    status: выполнено
+    start_date: 2025-06-30 # Current date
+    end_date: 2025-06-30 # Current date
+    commits: [] # Will add commit hash later
+    comments: "SC_ideas_log.md not found. Created ideas/ideas_categorized_with_tags.md, consolidating ideas from problem description and applying specified tags. Added #dao and #философия for clarity where appropriate."

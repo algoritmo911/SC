@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sapiens Coin Contribution and Reward Flow",
+  "description": "Describes the process from a subject's contribution to their potential reward within the Sapiens Coin ecosystem.",
+  "type": "object",
+  "properties": {
+    "flowInitiation": {
+      "type": "object",
+      "description": "Details of the subject initiating the flow.",
+      "properties": {
+        "subjectId": {
+          "type": "string",
+          "description": "Unique identifier for the subject (e.g., wallet address, decentralized ID)."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the flow was initiated."
+        }
+      },
+      "required": ["subjectId", "timestamp"]
+    },
+    "contribution": {
+      "type": "object",
+      "description": "Details of the contribution made by the subject.",
+      "properties": {
+        "contributionId": {
+          "type": "string",
+          "description": "Unique identifier for this specific contribution."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["knowledge", "creativity", "labor", "resource", "other"],
+          "description": "Type of contribution."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the contribution."
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string",
+                "format": "uri",
+                "description": "URI to the evidence of contribution (e.g., IPFS hash, URL to document/code)."
+              },
+              "mediaType": {
+                "type": "string",
+                "description": "MIME type of the evidence."
+              }
+            },
+            "required": ["uri"]
+          },
+          "description": "Links or references to evidence of the contribution."
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Any additional metadata relevant to the contribution (e.g., tags, categories, related projects)."
+        },
+        "submissionTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the contribution was submitted/recorded."
+        }
+      },
+      "required": ["contributionId", "type", "description", "submissionTimestamp"]
+    },
+    "tokenization": {
+      "type": "object",
+      "description": "Details of how the contribution is assessed and potentially tokenized or valued.",
+      "properties": {
+        "assessmentId": {
+          "type": "string",
+          "description": "Identifier for the assessment process of this contribution."
+        },
+        "assessorGroupId": {
+          "type": "string",
+          "description": "Identifier for the group or individuals responsible for assessment (e.g., DAO committee, reputation holders)."
+        },
+        "valuation": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "description": "Assigned value or score to the contribution."
+            },
+            "currency": {
+              "type": "string",
+              "description": "Unit of value (e.g., points, internal credits, pre-SC units)."
+            },
+            "justification": {
+              "type": "string",
+              "description": "Reasoning behind the valuation."
+            }
+          },
+          "required": ["value", "currency"]
+        },
+        "tokenizationDecision": {
+          "type": "boolean",
+          "description": "True if the contribution leads to direct tokenization, false otherwise."
+        },
+        "tokenizedUnits": {
+          "type": "number",
+          "description": "Number of units (e.g., reputation points, pre-reward tokens) assigned if tokenized."
+        },
+        "assessmentTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the assessment was completed."
+        }
+      },
+      "required": ["assessmentId", "valuation", "tokenizationDecision", "assessmentTimestamp"]
+    },
+    "voting": {
+      "type": "object",
+      "description": "Details of any voting process related to the contribution or its reward.",
+      "properties": {
+        "proposalId": {
+          "type": "string",
+          "description": "Identifier for the proposal related to this contribution (if applicable)."
+        },
+        "votingMechanism": {
+          "type": "string",
+          "enum": ["token-weighted", "reputation-weighted", "hybrid", "direct-approval", "not-applicable"],
+          "description": "Type of voting mechanism used."
+        },
+        "voters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of voter identifiers (if applicable and recorded)."
+        },
+        "outcome": {
+          "type": "string",
+          "enum": ["approved", "rejected", "pending", "not-applicable"],
+          "description": "Result of the vote."
+        },
+        "votingEndTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the voting concluded."
+        }
+      },
+      "required": ["proposalId", "votingMechanism", "outcome"]
+    },
+    "rewardDistribution": {
+      "type": "object",
+      "description": "Details of the reward distribution.",
+      "properties": {
+        "rewardId": {
+          "type": "string",
+          "description": "Unique identifier for the reward transaction/event."
+        },
+        "rewardType": {
+          "type": "string",
+          "enum": ["SC", "NFT", "ReputationPoints", "Other"],
+          "description": "Type of reward."
+        },
+        "amountOrTokenId": {
+          "type": "string",
+          "description": "Amount of SC, ID of the NFT, or quantity of points."
+        },
+        "recipientSubjectId": {
+          "type": "string",
+          "description": "Identifier of the subject receiving the reward (should match flowInitiation.subjectId)."
+        },
+        "distributionTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the reward was distributed."
+        },
+        "transactionHash": {
+          "type": "string",
+          "description": "On-chain transaction hash if the reward is blockchain-based."
+        }
+      },
+      "required": ["rewardId", "rewardType", "amountOrTokenId", "recipientSubjectId", "distributionTimestamp"]
+    }
+  },
+  "required": ["flowInitiation", "contribution", "tokenization", "rewardDistribution"]
+}
